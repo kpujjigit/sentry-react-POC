@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import * as Sentry from "@sentry/react";
+import Home from './Home';
+import About from './About';
+import Projects from './Projects';
+import Contact from './Contact';
+import NavBar from './NavBar';
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/projects" element={<Projects />} />
+          <Route exact path="/contact" element={<Contact />} />
+      </Routes>   
+      <button type="button" onClick={() => {
+        throw Error('Oops, something failed.')}
+      }>Click to invoke Error</button>
+      <button type="button" onClick={() => {
+        fetch('https://jsonplaceholder.typicode.com/users')}
+      }>Make an API Call</button>
     </div>
   );
 }
 
-export default App;
+export default Sentry.withProfiler(App);
