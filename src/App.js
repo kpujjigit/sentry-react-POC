@@ -6,11 +6,15 @@ import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 import NavBar from './NavBar';
+import ApiCall from './apiCall';
 import { Routes, Route } from "react-router-dom";
+
 
 function App() {
   return (
+    
     <div className="App">
+      <ApiCall />
       <NavBar />
       <Routes>
           <Route exact path="/" element={<Home />} />
