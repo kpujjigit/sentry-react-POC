@@ -22,12 +22,9 @@ function App() {
           <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/contact" element={<Contact />} />
       </Routes>   
-      <button type="button" onClick={() => {
+      <button type="button" style={{ size: '18px', padding: '20px', color: "black", background: "silver", width: '300px'}} onClick={() => {
         throw Error('Oops, something failed.')}
       }>Click to invoke Error</button>
-      <button type="button" onClick={() => {
-        fetch('https://jsonplaceholder.typicode.com/users')}
-      }>Make an API Call</button>
     </div>
   );
 }
